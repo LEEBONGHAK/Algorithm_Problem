@@ -27,9 +27,9 @@
   
 ### `stack<template>` - 주요 함수  
   
-`stack<int> stk;` => int형 자료를 담는 stack 생성  
-`stk.push(i);` => stk의 맨 위에 원소 i를 추가  
-`stk.pop();` => stk의 맨 위에 있는 원소를 삭제  
-`stk.top();` => stk의 맨 앞에 있는 원소를 조회  
+ - `stack<int> stk;` => int형 자료를 담는 stack 생성  
+ - `stk.push(i);` => stk의 맨 위에 원소 i를 추가  
+ - `stk.pop();` => stk의 맨 위에 있는 원소를 삭제  
+ - `stk.top();` => stk의 맨 앞에 있는 원소를 조회  
 `stk.size();` => stk의 크기를 확인  
 `stk.empty();` => stk가 비어있다면(size가 0이라면) true, 아니라면 false  
