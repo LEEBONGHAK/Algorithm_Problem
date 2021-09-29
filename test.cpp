@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 
-#define endl '\n';
+#define endl '\n'
 
 using namespace std;
 
