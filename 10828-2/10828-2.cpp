@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+﻿#include <bits/stdc++.h>
 
 #define endl '\n'
 
@@ -10,7 +10,7 @@ int main() {
 
 	string command;
 	int N, X;
-	stack<int> stk;	
+	stack<int> stk;
 
 	cin >> N;
 	for (int i = 0; i < N; ++i)
@@ -20,7 +20,7 @@ int main() {
 		if (command == "push") {
 			cin >> X;
 			stk.push(X);
-		} 
+		}
 		else if (command == "pop") {
 			if (stk.empty()) {
 				cout << -1 << endl;

@@ -108,6 +108,8 @@ int Size(listStack* Stack) {
 
 
 int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
 
 	int N, X;
 	string command;
