@@ -25,9 +25,8 @@
 |14<br/>push 1<br/>push 2<br/>top<br/>size<br/>empty<br/>pop<br/>pop<br/>pop<br/>size<br/>empty<br/>pop<br/>push 3<br/>empty<br/>top|2<br/>2<br/>0<br/>2<br/>1<br/>-1<br/>0<br/>1<br/>-1<br/>0<br/>3|
 |7<br/>pop<br/>top<br/>push 123<br/>top<br/>pop<br/>top<br/>pop|-1<br/>-1<br/>123<br/>123<br/>-1<br/>-1|
 
-### stack<template> - 주요 함수
+### stack<template> - 주요 함수  
   
-stack<template> - 주요 함수 (중요!)
  - stack<int> stk; => int형 자료를 담는 stack 생성  
  - stk.push(i) => stk의 맨 위에 원소 i를 추가  
  - stk.pop() => stk의 맨 위에 있는 원소를 삭제  
