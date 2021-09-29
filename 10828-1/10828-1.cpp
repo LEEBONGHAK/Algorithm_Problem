@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+﻿#include <bits/stdc++.h>
 
 #define endl '\n'
 
@@ -12,7 +12,7 @@ typedef struct sNode {	// node 구조제 정의
 } Node;
 
 // stack 구조체 정의
-typedef struct listStack {	
+typedef struct listStack {
 
 	Node* peek;		// 제일 마지막에 push된 node 추척
 	int size;		// stack의 사이즈 기억
@@ -20,7 +20,7 @@ typedef struct listStack {
 
 
 // stack 구조체의 메모리, 초기값 세팅 함수
-void createStack(listStack** Stack) {	
+void createStack(listStack** Stack) {
 
 	(*Stack) = (listStack*)malloc(sizeof(listStack));	// stack의 메모리 할당
 	(*Stack)->peek = NULL;	// 초기화
@@ -29,11 +29,11 @@ void createStack(listStack** Stack) {
 
 
 // stack을 구성하는 node의 메모리와 초기값 설정 함수
-Node* createNode(int newInt) {	
+Node* createNode(int newInt) {
 
 	Node* newNode = (Node*)malloc(sizeof(Node));	// node의 메모리 할당
 	newNode->data = newInt;	// node 데이터 할당
-	
+
 	newNode->next = NULL;		// list의 next를 가르키는 link 초기화
 
 	return newNode;
@@ -52,7 +52,7 @@ int Empty(listStack* Stack) {
 
 // Push(Stack, Node) - stack에 데이터를 집어넣는 함수
 void Push(listStack* Stack, Node* newNode) {		// Push 함수는 target stack과 넣고자 하는 node를 전달 받는다.
-	
+
 	// when stack is empty
 	if (Empty(Stack)) {
 
@@ -123,7 +123,7 @@ int main() {
 		if (command == "push") {
 			cin >> X;
 			Push(Stack, createNode(X));
-		} 
+		}
 		else if (command == "pop") {
 			cout << Pop(Stack) << endl;
 		}

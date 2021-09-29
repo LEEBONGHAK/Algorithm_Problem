@@ -1,6 +1,8 @@
-5
-1 1
-2 3
-3 4
-9 8
-5 2
+7
+pop
+top
+push 123
+top
+pop
+top
+pop
