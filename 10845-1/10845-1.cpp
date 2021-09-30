@@ -1,18 +1,18 @@
-#include <bits/stdc++.h>
+﻿#include <bits/stdc++.h>
 
 #define endl '\n'
 
 using namespace std;
 
 // node 구조제 정의
-typedef struct qNode {	
+typedef struct qNode {
 
 	int data;			// node 데이터
 	struct qNode* next;	// 다음 node 주소
 } Node;
 
 // queue 구조체 정의
-typedef struct listQueue {	
+typedef struct listQueue {
 
 	Node* front;	// 제일 처음을 pointer하는 node
 	Node* rear;		// 제일 마지막을 pointer하는 node
@@ -20,7 +20,7 @@ typedef struct listQueue {
 } listQueue;
 
 // queue 구조체의 메모리, 초기값 세팅 함수
-void createQueue(listQueue** Queue) {	
+void createQueue(listQueue** Queue) {
 
 	(*Queue) = (listQueue*)malloc(sizeof(listQueue));	// queue의 메모리 할당
 	(*Queue)->front = NULL;	// 초기화
@@ -29,7 +29,7 @@ void createQueue(listQueue** Queue) {
 }
 
 // queue을 구성하는 node의 메모리와 초기값 설정 함수
-Node* createNode(int newData) {	
+Node* createNode(int newData) {
 
 	Node* newNode = (Node*)malloc(sizeof(Node));	// node의 메모리 할당
 	newNode->data = newData;
@@ -121,7 +121,7 @@ int main() {
 			}
 			else {
 				cout << Queue->front->data << endl;
-			}	
+			}
 		}
 		else if (command == "back") {
 			if (Queue->size == 0) {
