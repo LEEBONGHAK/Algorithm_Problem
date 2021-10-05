@@ -1,16 +1,17 @@
-#include <bits/stdc++.h>
+﻿#include <bits/stdc++.h>
 
 #define endl '\n'
 
 using namespace std;
 
+// using counting sort (계수 정렬)
 int main()
 {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
 
 	int N, k;
-	int arr[10001] = {0, };
+	int arr[10001] = { 0, };
 
 	cin >> N;
 	for (int i = 0; i < N; i++) {
