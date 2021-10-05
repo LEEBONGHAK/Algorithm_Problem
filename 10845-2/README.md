@@ -27,7 +27,7 @@
   
 ### `queue<template>` - 주요 함수  
   
- - `queue<int> q;` => int형 자료를 담는 stack 생성  
+ - `queue<int> q;` => int형 자료를 담는 queue 생성  
  - `q.push(i);` => q의 맨 뒤에 원소 i를 추가  
  - `q.pop();` => q의 맨 앞에 있는 원소를 삭제  
  - `q.front();` => q의 맨 앞에 있는 원소를 조회  

@@ -1,12 +1,12 @@
-#include <bits/stdc++.h>
+﻿#include <bits/stdc++.h>
 #define endl '\n'
 using namespace std;
 
-int main(void){
-	ios_base::sync_with_stdio(false);
-	cin.tie(NULL);
+int main(void) {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
 
-	// 테스트 케이스, 전체 문서 개수, 인쇄 순서를 알고 싶은 문서의 위치, 우선순위
+    // 테스트 케이스, 전체 문서 개수, 인쇄 순서를 알고 싶은 문서의 위치, 우선순위
     int N, document_size, document_loc, importance;
     int print_order;	// 인쇄 순서
 
@@ -38,7 +38,7 @@ int main(void){
                 }
             }
             else {	// if를 만족하지 않으면 큐의 마지막에 추가
-            	q.push({ present_index, present_value });
+                q.push({ present_index, present_value });
             }
         }
     }
