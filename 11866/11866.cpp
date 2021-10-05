@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+﻿#include <bits/stdc++.h>
 
 #define endl '\n'
 
@@ -19,7 +19,7 @@ int main()
 
 	cout << "<";
 	while (1) {
-		for (int i = 0; i < k-1; i++) {
+		for (int i = 0; i < k - 1; i++) {
 			// queue의 첫 번째 요소를 넣고 지워 queue를 순환 가능
 			q.push(q.front());
 			q.pop();
