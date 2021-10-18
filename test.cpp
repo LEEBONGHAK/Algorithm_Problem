@@ -6,27 +6,15 @@ using namespace std;
 
 int main()
 {
-	ios_base::sync_with_stdio(false);
-	cin.tie(NULL);
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
 
-	int N, k;
-	int arr[10001] = {0, };
+    int a, sum = 0;
+    for (int i = 0; i < 5; i++) {
+        cin >> a;
+        sum += a;
+    }
+    cout << sum << endl;
 
-	cin >> N;
-	for (int i = 0; i < N; i++) {
-		cin >> k;
-		arr[k]++;
-	}
-
-	for (int i = 0; i < 10001; i++) {
-		if (arr[i] == 0) {
-			continue;
-		}
-
-		for (int j = 0; j < arr[i]; j++) {
-			cout << i << endl;
-		}
-	}
-
-	return 0;
+    return 0;
 }
