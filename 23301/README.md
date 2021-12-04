@@ -1,0 +1,1 @@
+# [스터디 시간 정하기 2](https://www.acmicpc.net/problem/23301)  
