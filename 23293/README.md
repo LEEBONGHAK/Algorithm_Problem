@@ -1,0 +1,1 @@
+# [아주 서바이벌](https://www.acmicpc.net/problem/23293)  
