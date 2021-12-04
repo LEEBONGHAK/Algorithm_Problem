@@ -24,5 +24,5 @@
 ### 예제  
   
 |입력|출력|
-|:---:|:---:|
-|So when I die (the [first] I will see in (heaven) is a score list).<br/>[ first in ] ( first out ).<br/>Half Moon tonight (At least it is better than no Moon at all].<br/>A rope may form )( a trail in a maze.<br/>Help( I[m being held prisoner in a fortune cookie factory)].<br/>([ (([( [ ] ) ( ) (( ))] )) ]).<br/> .<br/>.|yes<br/>yes<br/>no<br/>no<br/>no<br/>yes<br/>yes|
+|---|:---:|
+|So when I die (the [first] I will see in (heaven) is a score list).<br/>[ first in ] ( first out ).<br/>Half Moon tonight (At least it is better than no Moon at all].<br/>A rope may form )( a trail in a maze.<br/>Help( I[m being held prisoner in a fortune cookie factory)].<br/>([ (([( [ ] ) ( ) (( ))] )) ]).<br/>  .<br/>.|yes<br/>yes<br/>no<br/>no<br/>no<br/>yes<br/>yes|
