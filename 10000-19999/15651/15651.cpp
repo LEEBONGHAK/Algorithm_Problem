@@ -5,7 +5,6 @@ using namespace std;
 
 int n, m;
 int num[8];
-bool check[8];
 
 void printCase(int pos)
 {
