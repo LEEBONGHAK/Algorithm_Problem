@@ -1,25 +1,41 @@
 #include <bits/stdc++.h>
 
+#define MAX 8
 #define endl '\n'
 using namespace std;
 
-int l, a, b, c, d;
-int tmp1, tmp2;
+int n, m;
+int tmp[MAX], arr[MAX];
+
+void printCase(int pos)
+{
+    if (pos == m)
+    {
+        for (int i = 0; i < m; i++)
+            cout << arr[i] << " ";
+        cout << endl;
+
+        return;
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+        arr[pos] = tmp[i];
+        printCase(pos + 1);
+    }
+}
 
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    cin >> l >> a >> b >> c >> d;
+    cin >> n >> m;
+    for (int i = 0; i < n; i++)
+        cin >> tmp[i];
 
-    if (b % d == 0) tmp1 = b / d;
-    else tmp1 = b / d + 1;
-
-    if (a % c == 0) tmp2 = a / c;
-    else tmp2 = a / c + 1;
-
-    cout << l - (tmp1 > tmp2 ? tmp1 : tmp2) << endl;
+    sort(tmp, tmp + n);
+    printCase(0);
 
     return 0;
 }
