@@ -21,7 +21,12 @@ void printCase(int pos)
     for (int i = 0; i < n; i++)
     {
         if (i != 0 && tmp[i - 1] == tmp[i]) continue;
-        else if (check[tmp[i]] != 0) arr[pos] = tmp[i];
+        else if (check[tmp[i]] != 0) 
+        {
+            if(pos == 0) arr[pos] = tmp[i];
+            else if (arr[pos - 1] <= tmp[i]) arr[pos] = tmp[i];
+            else continue;
+        }   
         else continue;
 
         check[tmp[i]]--;
