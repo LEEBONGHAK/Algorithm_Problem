@@ -3,52 +3,42 @@
 #define endl '\n'
 using namespace std;
 
-int n, m;
-int tmp[9], arr[9];
-int check[100001];
+set<int> arr;
+int n, m, t;
 
-void printCase(int pos)
+void printCase(vector<int> &ans) 
 {
-    if (pos == m)
+    if (int(ans.size()) == m) 
     {
-        for (int i = 0; i < m; i++)
-            cout << arr[i] << " ";
+        for (int v : ans) 
+            cout << v << " ";
         cout << endl;
 
         return;
     }
 
-    for (int i = 0; i < n; i++)
+    for (int v : arr) 
     {
-        if (i != 0 && tmp[i - 1] == tmp[i]) continue;
-        else if (check[tmp[i]] != 0) 
-        {
-            if(pos == 0) arr[pos] = tmp[i];
-            else if (arr[pos - 1] <= tmp[i]) arr[pos] = tmp[i];
-            else continue;
-        }   
-        else continue;
-
-        check[tmp[i]]--;
-        printCase(pos + 1);
-        check[tmp[i]]++;
+        ans.push_back(v);
+        printCase(ans);
+        ans.pop_back();
     }
 }
 
-int main()
+int main() 
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
     cin >> n >> m;
     for (int i = 0; i < n; i++)
     {
-        cin >> tmp[i];
-        check[tmp[i]]++;
+        cin >> t;
+        arr.insert(t);
     }
 
-    sort(tmp, tmp + n);
-    printCase(0);
+    vector<int> ans;
+    printCase(ans);
 
     return 0;
 }
