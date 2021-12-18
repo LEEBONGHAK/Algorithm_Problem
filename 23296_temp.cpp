@@ -16,7 +16,7 @@ bool check_dfs[MAX];
 void DFS(int index, vector<int> &buf)
 {
     check_dfs[index] = true; //정점 방문 체크
-      
+
     int next = v[index][0];
     buf.push_back(next);
 
