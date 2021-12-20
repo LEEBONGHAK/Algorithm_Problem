@@ -3,26 +3,21 @@
 #define endl '\n'
 using namespace std;
 
-int n , m, t;
-int arr[9];
-set<int> tmp;
+#define MAX 1000000
 
-void printCase(int pos)
+int n, m;
+bool check[MAX + 1];
+
+void find_prime_number()
 {
-    if (pos == m) {
-        for (int i = 0; i < m; i++)
-            cout << arr[i] << " ";
-        cout << endl;
+    check[1] = true;
 
-        return;
-    }
-
-    for (auto element : tmp)
+    for (int i = 2; i  <= floor(sqrt(MAX)); i++)
     {
-        if (pos == 0 || arr[pos - 1] <= element) arr[pos] = element;
-        else continue;
+        if (check[i]) continue;
 
-        printCase(pos + 1);
+        for (int j = 2; i * j <= MAX; j++)
+            check[i * j] = true;
     }
 }
 
@@ -31,14 +26,11 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    cin >> n >> m;
-    for (int i = 0; i < n; i++)
-    {
-        cin >> t;
-        tmp.insert(t);
-    }
+    find_prime_number();
 
-    printCase(0);
+    cin >> n >> m;
+    for (int i = n; i <= m; i++)
+        if (!check[i]) cout << i << endl;
 
     return 0;
 }
