@@ -3,19 +3,27 @@
 #define endl '\n'
 using namespace std;
 
-int n, m, cnt;
-bool check[1001];
+int n , m, t;
+int arr[9];
+set<int> tmp;
 
-void find_prime_number() 
+void printCase(int pos)
 {
-    check[1] = true;
-    for (int i = 1; i < 1001; i++)
-        for (int j = i; j < 1001; j++)
-        {
-            if (i == j) continue;
-            else if (check[i] == true) continue;
-            else if (j % i == 0) check[j] = true;
-        }
+    if (pos == m) {
+        for (int i = 0; i < m; i++)
+            cout << arr[i] << " ";
+        cout << endl;
+
+        return;
+    }
+
+    for (auto element : tmp)
+    {
+        if (pos == 0 || arr[pos - 1] <= element) arr[pos] = element;
+        else continue;
+
+        printCase(pos + 1);
+    }
 }
 
 int main()
@@ -23,16 +31,14 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    find_prime_number();
-
-    cin >> n;
+    cin >> n >> m;
     for (int i = 0; i < n; i++)
     {
-        cin >> m;
-        if (check[m] == false) cnt++;
+        cin >> t;
+        tmp.insert(t);
     }
 
-    cout << cnt << endl;
+    printCase(0);
 
     return 0;
 }
