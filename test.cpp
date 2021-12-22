@@ -3,9 +3,12 @@
 #define endl '\n'
 using namespace std;
 
-long long n, k, t;
-int l, m, r;
-int arr[100001];
+int n, t;
+int ix = 1;
+bool flag;
+stack<int> s;
+queue<int> q;
+queue<char> result;
 
 int main()
 {
@@ -14,30 +17,41 @@ int main()
 
     cin >> n;
     for (int i = 0; i < n; i++)
-        cin >> arr[i];
-
-    sort(arr, arr + n);
-
-    cin >> k;
-    for (int i = 0; i < k; i++)
     {
         cin >> t;
-        l = 0, r = n - 1;
-        while(l <= r)
+        q.push(t);
+    }
+
+    while (!q.empty())
+    {
+        if (!s.empty() && s.top() == q.front())
         {
-            m = (l + r) / 2;
-
-            if (arr[m] == t) {
-                cout << 1 << endl;
-                break;
-            }
-
-            if (t < arr[m]) r = m - 1;
-            else l = m + 1;
+            result.push('-');
+            s.pop();
+            q.pop();
+            continue;
         }
 
-        if (l > r) cout << 0 << endl;
+        s.push(ix);
+        result.push('+');
+        ix++;
+
+        if (ix > n + 1) 
+        {
+            flag = true;
+            break;
+        }
     }
+
+    if (!flag)
+    {
+        while (!result.empty())
+        {
+            cout << result.front() << endl;
+            result.pop();
+        }
+    }
+    else cout << "NO" << endl;
 
     return 0;
 }
