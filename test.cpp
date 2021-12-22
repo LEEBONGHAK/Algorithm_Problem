@@ -3,12 +3,8 @@
 #define endl '\n'
 using namespace std;
 
-int n, t;
-int ix = 1;
-bool flag;
-stack<int> s;
-queue<int> q;
-queue<char> result;
+int n;
+int i = 1;
 
 int main()
 {
@@ -16,42 +12,21 @@ int main()
     cin.tie(NULL);
 
     cin >> n;
-    for (int i = 0; i < n; i++)
+    if (n == 1) cout << 1 << endl;
+    else if (n >= 2 && n <= 7) cout << 2 << endl;
+    else
     {
-        cin >> t;
-        q.push(t);
-    }
-
-    while (!q.empty())
-    {
-        if (!s.empty() && s.top() == q.front())
+        while(1)
         {
-            result.push('-');
-            s.pop();
-            q.pop();
-            continue;
-        }
+            if (n > (1 + 3 * i * (i + 1)) && n <= (1 + 3 * (i + 1) * (i + 2)))
+            {
+                cout << i + 2 << endl;
+                break;
+            }
 
-        s.push(ix);
-        result.push('+');
-        ix++;
-
-        if (ix > n + 1) 
-        {
-            flag = true;
-            break;
+            i++;
         }
     }
-
-    if (!flag)
-    {
-        while (!result.empty())
-        {
-            cout << result.front() << endl;
-            result.pop();
-        }
-    }
-    else cout << "NO" << endl;
 
     return 0;
 }
