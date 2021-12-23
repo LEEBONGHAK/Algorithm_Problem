@@ -52,7 +52,7 @@ int main()
 
     cout << 1 << endl;
     cout << s.size() << endl;
-    cout << s.begin() << " " << s.end() << endl;
+    cout << *s.begin() << " " << *s.end() << endl;
     cout << 1 << endl;
 
     // r1 = s.begin().first;
