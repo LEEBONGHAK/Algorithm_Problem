@@ -3,35 +3,9 @@
 #define endl '\n'
 using namespace std;
 
-int n, m, sums, close = 0;
-int tmp[3];
-int arr[101];
-bool check[101];
-
-void findResult(int pos)
-{
-    if (pos == 3)
-    {
-        sums = 0;
-        for (int i = 0; i < 3; i++)
-            sums += tmp[i];
-
-        if (sums <= m && abs(close - m) > abs(sums - m))
-            close = sums;
-
-        return;
-    }
-
-    for (int i = 0; i < n; i++) {
-        if (!check[i])
-        {
-            check[i] = true;
-            tmp[pos] = arr[i];
-            findResult(pos + 1);
-            check[i] = false;
-        }
-    }
-}
+int n, m, t, l, bm, r, result;
+long long sum = 0;
+vector<int> v;
 
 int main()
 {
@@ -40,11 +14,32 @@ int main()
 
     cin >> n >> m;
     for (int i = 0; i < n; i++)
-        cin >> arr[i];
+    {
+        cin >> t;
+        v.push_back(t);
+    }
 
-    findResult(0);
+    sort(v.begin(), v.end());
 
-    cout << close << endl;
+    l = 0;
+    r = v.back();
+    while (l <= r)
+    {
+        sum = 0;
+        bm = (l + r) / 2;
+
+        for (int i: v)
+            if (i > bm) sum += i - bm;
+
+        if (sum >= m)
+        {
+            l = bm + 1;
+            result = bm;
+        }
+        else r = bm - 1;
+    }
+
+    cout << result << endl;
 
     return 0;
 }
