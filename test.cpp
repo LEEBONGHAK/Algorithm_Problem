@@ -3,44 +3,44 @@
 #define endl '\n'
 using namespace std;
 
-long long k, n, t, l, m, r, tmp;
-vector<long long> v;
-vector<long long> result;
+int n, m, cnt1, cnt2;
+int rmin = 64;
+char arr[50][50];
+char ew[8][8];
+char eb[8][8];
+
+void findResult(int x, int y)
+{
+    cnt1 = 0, cnt2 = 0;
+    for (int i = x; i < x + 8; i++)
+    {
+        for (int j = y; j < y + 8; j++)
+        {
+            if ((i + j) % 2 == 0 && arr[i][j] != 'W') cnt1++;
+            if ((i + j) % 2 == 0 && arr[i][j] != 'B') cnt2++;
+            if ((i + j) % 2 == 1 && arr[i][j] != 'B') cnt1++;
+            if ((i + j) % 2 == 1 && arr[i][j] != 'W') cnt2++;
+        }        
+    }
+
+    rmin = min(min(cnt1, cnt2), rmin);
+}
 
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    cin >> k >> n;
-    for (int i = 0; i < k; i++)
-    {
-        cin >> t;
-        v.push_back(t);
-    }
+    cin >> n >> m;
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < m; j++)
+            cin >> arr[i][j];
 
-    sort(v.begin(), v.end());
+    for (int i = 0; i < n - 7; i++)
+        for (int j = 0; j < m - 7; j++)
+            findResult(i, j);
 
-    l = 1;
-    r = v.back();
-    while (l <= r)
-    {
-        tmp = 0;
-        m = (l + r) / 2;
-
-        for (int i = 0; i < k; i++)
-            tmp += v[i] / m;
-
-        if (tmp >= n) 
-        {
-            result.push_back(m);
-            l = m + 1;
-        }
-        else r = m - 1;
-    }
-
-    sort(result.begin(), result.end());
-    cout << result.back() << endl;
+    cout << rmin << endl;
 
     return 0;
 }
