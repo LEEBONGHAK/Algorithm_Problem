@@ -3,44 +3,34 @@
 #define endl '\n'
 using namespace std;
 
-int n, m, cnt1, cnt2;
-int rmin = 64;
-char arr[50][50];
-char ew[8][8];
-char eb[8][8];
+int n;
+int cnt = 0, ans = 666;
+string str;
 
-void findResult(int x, int y)
-{
-    cnt1 = 0, cnt2 = 0;
-    for (int i = x; i < x + 8; i++)
-    {
-        for (int j = y; j < y + 8; j++)
-        {
-            if ((i + j) % 2 == 0 && arr[i][j] != 'W') cnt1++;
-            if ((i + j) % 2 == 0 && arr[i][j] != 'B') cnt2++;
-            if ((i + j) % 2 == 1 && arr[i][j] != 'B') cnt1++;
-            if ((i + j) % 2 == 1 && arr[i][j] != 'W') cnt2++;
-        }        
-    }
-
-    rmin = min(min(cnt1, cnt2), rmin);
-}
-
-int main()
+int main() 
 {
     ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
+    cin.tie(NULL), cout.tie(NULL);
 
-    cin >> n >> m;
-    for (int i = 0; i < n; i++)
-        for (int j = 0; j < m; j++)
-            cin >> arr[i][j];
+    cin >> n;
+    while (true) 
+    {
+        str = to_string(ans);
 
-    for (int i = 0; i < n - 7; i++)
-        for (int j = 0; j < m - 7; j++)
-            findResult(i, j);
+        for (int i = 0; i < int(str.length()) - 2; i++) 
+        {
+            if (str[i] == '6' && str[i + 1] == '6' && str[i + 2] == '6') 
+            {
+                cnt++;
+                break;
+            }
+        }
 
-    cout << rmin << endl;
+        if (cnt == n) break;
+        ans++;
+    }
+
+    cout << ans << endl;
 
     return 0;
 }
