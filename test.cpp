@@ -3,34 +3,38 @@
 #define endl '\n'
 using namespace std;
 
-int n;
-int cnt = 0, ans = 666;
-string str;
+long long x, y, z, l, m, r;
+long long result = INT_MAX;
 
-int main() 
+int main()
 {
     ios_base::sync_with_stdio(false);
-    cin.tie(NULL), cout.tie(NULL);
+    cin.tie(NULL);
 
-    cin >> n;
-    while (true) 
+    cin >> x >> y;
+    z = y * 100 / x;
+
+    if (z >= 99)
     {
-        str = to_string(ans);
-
-        for (int i = 0; i < int(str.length()) - 2; i++) 
-        {
-            if (str[i] == '6' && str[i + 1] == '6' && str[i + 2] == '6') 
-            {
-                cnt++;
-                break;
-            }
-        }
-
-        if (cnt == n) break;
-        ans++;
+        cout << -1 << endl;
+        return 0;
     }
 
-    cout << ans << endl;
+    l = 1;
+    r = x;
+    while (l <= r)
+    {
+        m = (l + r) / 2;
+
+        if ((y + m) * 100 / (x + m) > z)
+        {
+            result = min(result, m);
+            r = m - 1;
+        }
+        else l = m + 1;
+    }
+
+    cout << result << endl;
 
     return 0;
 }
