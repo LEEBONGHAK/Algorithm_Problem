@@ -3,28 +3,42 @@
 #define endl '\n'
 using namespace std;
 
-int n, tmp;
-int res = 0;
-int arr[100001];
+int t, n, tmp1, tmp2;
+vector<int> v;
+
+int fibonacci(int n)
+{
+    if (n == 0) return 0;
+    else if (n == 1) return 1;
+    else if (int(v.size()) > n) return v[n];
+    else 
+    {
+        tmp1 = fibonacci(n - 1) + fibonacci(n - 2);
+        v.push_back(tmp1);
+        return tmp1;
+    }
+}
 
 int main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    cin >> n;
-    for (int i = 0; i < n; i++)
-        cin >> arr[i];
+    v.push_back(0);
+    v.push_back(1);
 
-    sort(arr, arr + n, greater<int>());
-
-    for (int i = 0; i < n; i++)
+    cin >> t;
+    for (int i = 0; i < t; i++)
     {
-        tmp = arr[i] * (i + 1);
-        res = max(tmp, res);
-    }
+        cin >> n;
 
-    cout << res << endl;
+        if (n == 0) cout << "1 0" << endl;
+        else 
+        {
+            tmp2 = fibonacci(n);
+            cout << v[n - 1] << " " << tmp2 << endl;
+        }
+    }
 
     return 0;
 }
