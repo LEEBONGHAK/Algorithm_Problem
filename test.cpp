@@ -3,41 +3,21 @@
 #define endl '\n'
 using namespace std;
 
-int arr[15];
-int n;
-bool flag;
+int n, k, res, tmp;
 
-int n_queen(int pos)
+void find_res(int pos)
 {
-    int cnt = 0;
+    if (pos == 10)
+        return ;
 
-    if (pos == n)
-        return 1;
-    
-    for (int i = 0; i < n; i++)
+    for (int i = 1; i < 4; i++)
     {
-        if (!pos)
-        {
-            arr[pos] = i;
-            cnt += n_queen(pos + 1);
-            continue;
-        }
-
-        flag = true;
-        for (int j = 0; j < pos; j++)
-        {
-            if (arr[j] == i || arr[j] - (pos - j) == i || arr[j] + (pos - j) == i)
-                flag = false;
-        }
-
-        if (flag)
-        {
-            arr[pos] = i;
-            cnt += n_queen(pos + 1);
-        }
+        tmp += i;
+        if (tmp == k)
+            res++;
+        find_res(pos + 1);
+        tmp -= i;
     }
-
-    return cnt;
 }
 
 int main()
@@ -46,7 +26,14 @@ int main()
     cin.tie(NULL);
 
     cin >> n;
-    cout << n_queen(0) << endl;
+    for (int i = 0; i < n; i++)
+    {
+        cin >> k;
+        res = 0;
+        tmp = 0;
+        find_res(0);
+        cout << res << endl;
+    }
 
     return 0;
 }
