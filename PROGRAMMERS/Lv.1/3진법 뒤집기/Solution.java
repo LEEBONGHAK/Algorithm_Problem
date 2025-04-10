@@ -1,5 +1,3 @@
-import java.util.*;
-
 class Solution {
     public int solution(int n) {
         String tmp = Integer.toString(n, 3);
